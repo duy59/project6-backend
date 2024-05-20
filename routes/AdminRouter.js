@@ -20,20 +20,6 @@ router.post("/login", async (req, res) => {
     }
 });
 
-// Logout route (same as before)
-router.post("/logout", (req, res) => {
-    req.session.destroy(error => {
-        if (error) {
-            console.error("Error logging out:", error);
-            res.status(500).json({ message: "Internal Server Error" });
-        } else {
-            res.sendStatus(200);
-        }
-    });
-});
-
-module.exports = router;
-
 // Logout route
 router.post("/logout", (req, res) => {
     req.session.destroy(error => {
